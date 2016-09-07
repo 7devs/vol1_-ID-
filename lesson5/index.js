@@ -1,5 +1,5 @@
 var http = require('http');
-var server = http.creatServer(function(req,res){
+var server = http.createServer(function(req,res){
     res.write('hello,world');
     res.end();
 });

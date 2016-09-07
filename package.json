@@ -1,0 +1,22 @@
+{
+  "name": "zengdamo",
+  "version": "1.0.0",
+  "description": "learn",
+  "main": "index.js",
+  "scripts": {
+    "test": "haha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/7devs/vol1_practice.git"
+  },
+  "keywords": [
+    "learner"
+  ],
+  "author": "damo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/7devs/vol1_practice/issues"
+  },
+  "homepage": "https://github.com/7devs/vol1_practice#readme"
+}
