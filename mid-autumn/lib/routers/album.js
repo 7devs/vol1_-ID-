@@ -1,5 +1,5 @@
 var router = require('express').Router(),
-    albumModel = require('../Models/album.js');
+    albumModel = require('../models/album.js');
 
 //返回所有专辑
 router.route('/').get(function(req,res,next){
@@ -40,7 +40,7 @@ router.route('/longerSong').get(function(req,res,next){
     var songList = [];
     for(i=0;i<albumModel[i].length;i++){
         var minLength = albumModel[i].length/60;
-        if(minLength) > 3{
+        if(minLength > 3){
             songList = songList.concat(albumModel[i]);
         }
     }
@@ -49,17 +49,14 @@ router.route('/longerSong').get(function(req,res,next){
 
 router.route('/singer/:name').get(function(req,res,next){
   var singerName = req.params.name;
-  //console.log('url中输入的歌手名称是 '+ singerName);
   var hisSong = [];
   for (i=0; i<albumModel.length; i=i+1){
-    //console.log('try to match ' + singerName);
-    //console.log('with ' + albumModel[i].singer);
     if (albumModel[i].singer === singerName){
       hisSong = hisSong.concat(albumModel[i]);
-    } //if语句判断结束
-  }//for语句判断结束
+    }
+  }
 
-//第二个if，判断相关歌手，所有歌曲的数组是不是空的，如果是空的就是没找到；如果不是空的，就输出
+
   if (hisSong.length===0){
     res.status(404).send('没有这个歌手记录');
   } else {
@@ -76,8 +73,8 @@ router.route('/search').get(function(req,res,next){
   for (i=0; i<albumModel.length; i=i+1){
     if(type===albumModel[i].type){
       thisType = thisType.concat(albumModel[i]);
-    }//if语句结束
-  }//for语句结束
+    }
+  }
 
   if (thisType.length===0){
     res.status(404).send('木有这个类型');
